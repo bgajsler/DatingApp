@@ -1,0 +1,46 @@
+****************************************************************************************
+    DOTNET EF MIGRATIONS
+****************************************************************************************
+dotnet ef -h
+// creates ef migrations model
+dotnet ef migrations add InitialCreate  
+dotnet ef database update
+
+// update EntityFrameworkCore tools!
+Install-Package Microsoft.EntityFrameworkCore.Tools -RequiredVersion 2.1.4
+
+
+****************************************************************************************
+    nuget
+****************************************************************************************
+// Install client tools
+
+https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools#visual-studio
+
+
+****************************************************************************************
+    Install angular/cli https://cli.angular.io
+****************************************************************************************
+npm install -g @angular/cli@6.2.6
+
+//create project structure
+ng new DatingApp-SPA
+
+// start project
+ng serve
+!!! Will not work if you user symbolic links for paths! (e.g. c:\Users\bgajsler\Learning does not work!. It works from c:\Work\Sandbox\Learning)
+
+// e2e ... folder for end2end testing
+// angular.js ... settings used by webpack
+
+// Install CORS in Startup.cs (No 'Access-Control-Allow-Origin' header is present on the requested resource.)
+ services.AddCors(); // into ConfigureServices() method
+ app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+
+// Install Bootstrap & Font-Awesome
+npm install bootstrap font-awesome
+
+// Initialize GIT repository
+git status  // get git status in git repository
+git init // initialize git repository
+
