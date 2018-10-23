@@ -43,4 +43,7 @@ npm install bootstrap font-awesome
 // Initialize GIT repository
 git status  // get git status in git repository
 git init // initialize git repository
+git remote add origin https://github.com/bgajsler/DatingApp.git
+git pull origin master --allow-unrelated-histories // if containers were not merged before
+git push -u origin master
 
