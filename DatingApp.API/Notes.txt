@@ -39,6 +39,10 @@ ng serve
 
 // Install Bootstrap & Font-Awesome
 npm install bootstrap font-awesome
+//Add the following lines to styles.css
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/font-awesome/css/font-awesome.min.css';
 
 // Initialize GIT repository
 git status  // get git status in git repository
@@ -47,3 +51,35 @@ git remote add origin https://github.com/bgajsler/DatingApp.git
 git pull origin master --allow-unrelated-histories // if containers were not merged before
 git push -u origin master
 
+
+
+*****************************************************************************************************
+    Security
+*****************************************************************************************************
+// Hash Password with SHA512 and add a salt
+// Random SALT ( Hash + Salt )
+
+// add users update to .NET Migrations
+dotnet ef migrations add AddedUserEntity
+dotnet ef database update
+
+// services.AddSingleton ... creates single instance, not so good with concurrent services
+// services.AddTransient ... create for each requested
+// services.AddScoped    ... on instance per request, but same instance for session!
+
+// Create DTO ... DataTransferObject
+
+// we change the controllerto support the basic apo: change Controller base class with ControllerBase
+-----------------------------------------------------------------------------------------------------------------------
+// TOKEN AUTHENTICATION
+// JWT ... Jason Web Tokens .. industry standardm self-contained and can contain Credentials, Claims, Other information
+// JWT structure (header, payload, secret)
+-----------------------------------------------------------------------------------------------------------------------
+
+go to https://jwt.io
+past the token for content
+eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJqb2huIiwibmJmIjoxNTQwNzQ5NDQ1LCJleHAiOjE1NDA4MzU4NDQsImlhdCI6MTU0MDc0OTQ0NX0.f2njAOYqbxh6I9Hm_S7VcC6tUfpBAj6kbCumusGEgvoV6-f8TiMKd5LXaBeNFoMCjGeGHg2psrXd6OEjqzodsQ
+
+// send the authorized request by adding 
+"Authorization" key to request and the value must begin with Bearer followed by empty space and token 
+(e.g. "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJqb2huIiwibmJmIjoxNTQwNzUxMzk2LCJleHAiOjE1NDA4Mzc3OTYsImlhdCI6MTU0MDc1MTM5Nn0.u_flH9x_ek-4mCEuUDF7TzoS71TATA5ubkrwOmo8c9m1m4_OqVUw2wSr1edP83jYEV3iBBLGl3jI94E7-eAIsA")
