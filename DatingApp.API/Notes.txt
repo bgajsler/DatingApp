@@ -126,6 +126,8 @@ FORM AND FIELD
 *****************************************************************************************************
     ADD ANGULAR SERVICE REPOSITORY
 *****************************************************************************************************
+_service folder 
+add AuthService.ts in folder
 
 *****************************************************************************************************
     Add Input and Output parameters
@@ -135,3 +137,31 @@ FORM AND FIELD
 @Output() cancelRegister = new EventEmmiter;
 // *.html
 <app-register [valuesFromHome]="values" (cancelRegister)="cancelRegisterMode($evente)"></app-register>
+
+*****************************************************************************************************
+    Error handling
+*****************************************************************************************************
+try {
+
+} catch {
+    return StatusCode(500,  "Computer really says no!");
+}
+
+// Global Exception Handling
+in Configuer of Startup.cs
+
+    app.UseExceptionHandler(builder => {
+        builder.Run(async context => { 
+            context.Response.StatusCode =  (int)HttpStatusCode.InternalServerError;
+
+            var error = context.Features.Get<IExceptionHandlerFeature>();
+            if(error != null)
+            {
+                await context.Response.WriteAsync(error.Error.Message);
+            }
+        });
+    });
+
+
+
+/// Angular HTTP Interceptor
