@@ -1,4 +1,13 @@
 ****************************************************************************************
+    Add BOOTSTRAP 4.x to install boostrap
+****************************************************************************************
+npm install boostrap font-awesome
+add styles to general src/styles.css
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/font-awesome/css/font-awesome.min.css';
+
+****************************************************************************************
     DOTNET EF MIGRATIONS
 ****************************************************************************************
 dotnet ef -h
@@ -83,3 +92,46 @@ eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJqb2h
 // send the authorized request by adding 
 "Authorization" key to request and the value must begin with Bearer followed by empty space and token 
 (e.g. "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJqb2huIiwibmJmIjoxNTQwNzUxMzk2LCJleHAiOjE1NDA4Mzc3OTYsImlhdCI6MTU0MDc1MTM5Nn0.u_flH9x_ek-4mCEuUDF7TzoS71TATA5ubkrwOmo8c9m1m4_OqVUw2wSr1edP83jYEV3iBBLGl3jI94E7-eAIsA")
+
+
+
+*****************************************************************************************************
+    Client side login and register
+*****************************************************************************************************
+2 types of forms 
+ A> template forms
+ B> reactive forms
+
+ TEMPLATE FORMS
+ define names in html tags =>
+  #loginForm="ngForm" or #username="ngModel"
+  2way databinding [(ngModel)]="model.username" d
+
+FORM AND FIELD
+<pre>
+  Form Valid: {{loginForm.valid}}
+  Form Touched: {{loginForm.touched}}
+  Form Dirty: {{loginForm.dirty}}
+  Form Values: {{loginForm.value | json}}
+  Username Valid: {{username.valid}}
+  Username Touched: {{username.touched}}
+  Username Dirty: {{username.dirty}}
+  Username Value: {{username.value}}
+  Password Valid: {{password.valid}}
+  Password Touched: {{password.touched}}
+  Password Dirty: {{password.dirty}}
+  Password Value: {{password.value}}
+</pre>
+
+*****************************************************************************************************
+    ADD ANGULAR SERVICE REPOSITORY
+*****************************************************************************************************
+
+*****************************************************************************************************
+    Add Input and Output parameters
+*****************************************************************************************************
+// *.ts
+@Input() valuesFromHome: any;
+@Output() cancelRegister = new EventEmmiter;
+// *.html
+<app-register [valuesFromHome]="values" (cancelRegister)="cancelRegisterMode($evente)"></app-register>

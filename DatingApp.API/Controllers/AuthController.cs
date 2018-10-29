@@ -27,6 +27,7 @@ namespace DatingApp.API.Controllers
             this._config = config;
         }
 
+        [AllowAnonymous]
         [HttpPost("register")]
         // public async Task<IActionResult> Register([FromBody]UserForRegisterDto userForRegisterDto) if [ApiController] is disabled
         public async Task<IActionResult> Register(UserForRegisterDto userForRegisterDto)
@@ -60,7 +61,7 @@ namespace DatingApp.API.Controllers
             var userFromRepo = await _repo.Login(userForLoginDto.Username, userForLoginDto.Password);
             if(userFromRepo == null)
                 return Unauthorized();            
-
+ 
             var  claims = new[]
             {
                 new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
