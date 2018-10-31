@@ -208,4 +208,57 @@ export const ErrorInterceptorProvider = {
     useClass: ErrorInterceptor,
     multi: true
 }
+
 //register the ErrorInterceptorProvider to providers in app.module.ts!!
+
+*****************************************************************************************************
+    3rd party libraries
+*****************************************************************************************************
+_____________________________________________________________________________________________________
+Alertifyjs.com
+=====================================================================================================
+npm install Alertifyjs --save
+make a alertify.service.ts repository and use the line
+
+_____________________________________________________________________________________________________
+    auth0/angular-jwt JWT library
+=====================================================================================================
+// careful which option to use (other library is for angularjs)
+auth0 angular jwt
+npm install @auth0/angular-jwt
+// use
+import { JwtHelperService } from '@auth0/angular-jwt';
+ 
+const helper = new JwtHelperService();
+ 
+const decodedToken = helper.decodeToken(myRawToken);
+const expirationDate = helper.getTokenExpirationDate(myRawToken);
+const isExpired = helper.isTokenExpired(myRawToken);
+
+_____________________________________________________________________________________________________
+    ngx bootstrap
+=====================================================================================================
+https://valor-software.com/ngx-boostrap/#/
+npm install ngx-bootstrap --save
+<!--- index.html -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+or method 2
+ng add ngx-bootstrap 
+ng add ngx-bootstrap  --component componentName
+or setup manually
+import { setTheme } from 'ngx-bootstrap/utils';
+ 
+@Component({…})
+export class AppComponent {
+  constructor() {
+    setTheme('bs3'); // or 'bs4'
+    …
+  }
+}
+
+https://valor-software.com/ngx-bootstrap/?gclid=EAIaIQobChMIgtyY6cqw3gIVwbTtCh3d5gB7EAAYASAAEgK2EvD_BwE#/dropdowns
+
+
+_____________________________________________________________________________________________________
+    bootswatch
+=====================================================================================================
